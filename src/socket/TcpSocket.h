@@ -18,16 +18,18 @@
 
 #endif
 
-#ifdef __linux__
+
+#if defined(__linux__) || (__APPLE__)
 using SOCKET = int;
 #endif
 
+
 class TcpSocket {
 public:
-    SOCKET serverSocket{0};
+    SOCKET               serverSocket{0};
     /*SOCKET clientSocket{0};*/
-    char clientIp[40]{0};
-    int clientPort{0};
+    char                 clientIp[40]{0};
+    int                  clientPort{0};
     static constexpr int MAX_BUFFER = 1024;
 public:
     /*创建tcp套接字*/
